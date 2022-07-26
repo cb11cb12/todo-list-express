@@ -1,11 +1,23 @@
-const express = require('express')
+//npm install express mongoose ejs dotenv
+
+
+// Requires that Express be imported into Node
+const express = require('express') 
+
+// Creates an Express Application
 const app = express()
+
+// Require that MogoClient be imported
 const MongoClient = require('mongodb').MongoClient
+
+// Establishes a local port on port 2121
 const PORT = 2121
+
+// Allows you to hide variables?
 require('dotenv').config()
 
-
-let db,
+// Create Database and sets dbConnectionStr to address provided in MongoDB
+let db, 
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'LeonToDo'
 
