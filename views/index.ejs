@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+
+<!-- Main section displayed -->
+<body> 
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,27 +20,28 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Todo List: </h1>
+    <h1>Todo List: </h1> <!--Use EJS to start a for loop-->
     <ul class="todoItems">
     <% for(let i=0; i < items.length; i++) {%>
-        <li class="item">
-            <% if(items[i].completed === true) {%>
-                <span class='completed'><%= items[i].thing %></span>
-            <% }else{ %>
-                <span><%= items[i].thing %></span>
+        <li class="item"> 
+            <% if(items[i].completed === true) {%> <!--To check if an item in array with a completed property is true-->
+                <span class='completed'><%= items[i].thing %></span>  <!--Creating an inline element with a class and adding EJS to display the name of the task-->
+            <% }else{ %><!--EJS for the else clause of our if statement-->
+                <span><%= items[i].thing %></span> <!--adding EJS to display the name of the task with no class-->
             <% } %>    
-            <span class='fa fa-trash'></span>
+            <span class='fa fa-trash'></span> <!--trash icon-->
         </li>
     <% } %>
     </ul>
 
+    <!-- Creates a second level heading tag with text and using EJS to display a variable showing how many tasks are left to do -->
     <h2>Left to do: <%= left %></h2>
 
     <h2>Add A Todo:</h2>
 
-    <form action="/addTodo" method="POST">
-        <input type="text" placeholder="Thing To Do" name="todoItem">
-        <input type="submit">
+    <form action="/addTodo" method="POST"><!--Create a form with a POST method-->
+        <input type="text" placeholder="Thing To Do" name="todoItem"> <!--Create an input box with default tax inside-->
+        <input type="submit"> <!-- Submit button for form -->
     </form>
     
 
